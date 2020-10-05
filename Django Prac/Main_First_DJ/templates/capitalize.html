@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+
+ 
+    
+ {%block content%}
+
+
+
+
+
+<div class=" container mt-5">
+    <form class="form-group" action="/capitalize/" method="POST">
+      {% csrf_token %}
+    <label for="exampleFormControlTextarea1"><h4>Capitalize Your Text:</h4></label>
+    <textarea class="form-control" name="text_cap_val" id="exampleFormControlTextarea1" rows="5"></textarea>
+    <button class="Submit btn-dark h-50 mt-4">Change</button>
+
+    </form>
+
+    <div>
+      <pre>Your Text : {{original}}</pre>  
+      <pre>FIltered Output : {{filtered}}</pre>
+    </div>  
+
+  </div>
+
+
+
+
+    {% endblock%}
