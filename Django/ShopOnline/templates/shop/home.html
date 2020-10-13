@@ -1,0 +1,184 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA_Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="{%static 'css/home.css' %}">
+  <!-- <link rel="stylesheet" href="{%static 'css/imgfit.css' %}"> -->
+  <link rel="stylesheet" href="{%static 'css/lightslider.css' %}">
+  <script src="{%static 'js/jqry.js'%}"></script>
+  <script src="{%static 'js/lightslider.js'%}"></script>
+  <script src="{%static 'js/script.js'%}"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    * {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .card {
+      width: 400px;
+      height: 400px;
+
+    }
+
+    .navbar {
+      background: rgb(11, 67, 99) !important;
+      height: auto;
+
+    }
+
+    .navbar-brand {
+      color: white !important;
+    }
+
+    .navbar ul li a {
+      color: white !important;
+
+    }
+
+    .navbar-toggler {
+      color: white;
+      background-color: rgba(14, 37, 59, 0.466);
+    }
+
+    .card {
+      margin-top: 20px;
+      /* background: rgb(11, 67, 99) !important; */
+      border-radius: 20px;
+    }
+
+    .card-img {
+      width: auto;
+      height: 250px;
+
+
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px !important;
+
+    }
+
+    .card-body {
+      border-radius: 14px !important;
+      background: rgb(11, 67, 99) !important;
+      color: white;
+      height: auto;
+    }
+
+    .product_section {
+      /* visibility: hidden; */
+    }
+  </style>
+</head>
+
+<body>
+  <section class="home">
+    <nav class="navbar">
+      <div class="logo">
+        <h1><a href="">ShopOnline</a></h1>
+      </div>
+      <div id='nav_open' class="phn_nav">
+        <span class="cross"><i onclick="close_nav()" class="fa fa-arrow-circle-left"></i></span>
+        <ul class="nav_items">
+          <li><a class='li_active' href="https://www.youtube.com">Home</a></li>
+          <li><a href="https://www.facebook.com">Places</a></li>
+          <li><a href="">Images</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Upload</a></li>
+        </ul>
+
+        <div class="nav_search">
+          <input type="text" placeholder="Search Places">
+          <button>
+            <i class="fa fa-search"></i>
+          </button>
+
+        </div>
+      </div>
+      <span class="three_dot"><i onclick="open_nav()" class="fa fa-align-justify"></i></span>
+    </nav>
+
+
+  </section>
+
+  <section class="product_section">
+    <div class="container">
+      <div class="caro">
+        <div class="card">
+          <div class="card-img">
+            <img src="{%static 'img/product (1).jpg' %}" alt="">
+          </div>
+          <div class="card-body">
+            <h1>Header</h1>
+            <p>Lorem ipsum dolor sit amet.</p>
+          </div>
+
+        </div>
+
+        <div class="card">
+          <div class="card-img">
+            <img src="{%static 'img/product (2).jpg' %}" alt="">
+
+          </div>
+          <div class="card-body">
+            <h1>Header</h1>
+            <p>Lorem ipsum dolor sit amet.</p>
+          </div>
+
+        </div>
+
+        <div class="card">
+          <div class="card-img">
+            <img src="{%static 'img/product (3).jpg' %}" alt="">
+
+          </div>
+          <div class="card-body">
+            <h1>Header</h1>
+            <p>Lorem ipsum dolor sit amet.</p>
+          </div>
+
+        </div>
+
+        <div class="card">
+          <div class="card-img">
+            <img src="{%static 'img/product (4).jpg' %}" alt="">
+
+          </div>
+          <div class="card-body">
+            <h1>Header</h1>
+            <p>Lorem ipsum dolor sit amet.</p>
+          </div>
+
+        </div>
+
+        <div class="card">
+          <div class="card-img">
+            <img src="{%static 'img/product (1).jpg'%}" alt="">
+
+          </div>
+          <div class="card-body">
+            <h1>Header</h1>
+            <p>Lorem ipsum dolor sit amet.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+</body>
+
+</html>

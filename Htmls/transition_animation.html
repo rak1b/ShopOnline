@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .box{
+            width: 100px;
+            height:100px;
+            background:#185d56;
+            /* position: relative; */
+            position: absolute;
+            /* animation: rk 2s 3; */
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            animation: rk2 4s ease-in-out infinite ;
+        }
+
+        .box2{
+            width: 100px;
+            height:100px;
+            background:rebeccapurple;
+            /* position: relative; */
+            position: absolute;
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            animation: rk3 4s ease-in-out infinite ;
+
+        }
+
+        .transition h1{
+            height: 100px;
+            width: 100px;
+            display: block;
+            background: rgb(28, 3, 73);
+            margin: auto;
+            font-size: 10px;
+            text-align: center;
+            transition:all ease 1s ;
+        }
+        h2{
+            height: 100px;
+            width: 100px;
+            display: block;
+            background: rgb(255, 161, 197);
+            margin: auto;
+            font-size: 10px;
+            
+        }
+
+        .transition h1:hover{
+            height: 400px;
+            width: 400px;
+        }
+        /* @keyframes rk {
+            from{
+                width: 300px;
+            }
+            to{
+                width: 500px;
+            }
+        } */
+
+        @keyframes rk2{
+            0%{
+                top: 0;
+                left:0;
+
+            }
+
+            20%{
+                top: 0px;
+                left:200px;
+            }
+
+            40%{
+                top: 200px;
+                left: 200px;
+                }
+            60%{
+                top:400px;
+                left: 200px;
+            }
+
+            80%{
+                top:400px;
+                left: 400px;
+            }
+
+            100%{
+                top:600px;
+                left:10000px;
+            }
+        }
+
+        @keyframes rk3 {
+            0%{
+                top: 0;
+                left:0;
+
+            }
+
+            20%{
+                top: 200px;
+                left:0px;
+            }
+
+            40%{
+                top: 200px;
+                left: 200px;
+                }
+
+            60%{
+                top: 200px;
+                left:400px;
+            }
+            80%{
+                top: 400px;
+                left:400px;  
+            }
+            100%{
+                top:800px;
+                left:400px;
+            }
+
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>box</h1>
+    </div>    
+    <div class="box2">
+        <h1>box</h1>
+    </div>
+
+    <div class="transition">
+        <h1>Transition</h1>
+        <h2>Side box</h2>
+    </div>
+    
+    
+</body>
+</html>

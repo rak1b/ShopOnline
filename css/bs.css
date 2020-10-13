@@ -1,0 +1,11 @@
+.carousel-item img{
+    width: 100%;
+    height: 80vh;
+}
+
+.carousel-control-prev-icon_{
+    position: absolute;
+    top: 100px;
+    left: 30px;
+    z-index: 1;
+}

@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.home{
+    background: rgba(33, 49, 23, 0.53);
+    width: 100vw;
+    height: 100vh;
+    /* transform: scale(1.008); */
+    /* transition: ease 5s; */
+}
+
+.home::before{
+    content:"";
+    position: absolute;
+    top: 0;
+    background: url(../img/nature2.jpg) fixed center center;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+    
+}
+.navbar{
+    width: 100%;
+    height: 110px;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: row;
+    background:rgba(10, 12, 12, 0.404);
+    position: fixed;
+}
+.logo{
+    margin: auto 20px;  
+    margin-left: 30px;  
+}
+.logo h1 a{
+    text-decoration: none;
+    color: rgba(55, 182, 23, 0.911);
+    font-size: 3.2rem;
+
+}
+.logo h1 a:hover{
+    color: rgb(102, 235, 26);
+    display: block;
+    transform: scale(1.02);
+    transition: ease 1.4s;
+}
+
+.navbar ul{
+    text-decoration: none;
+    list-style:none;
+
+    display: flex;
+    margin: auto 5px;
+
+}
+
+.navbar ul li{
+    justify-content: center;
+    
+
+}
+
+
+.navbar ul a{
+    text-decoration: none;
+    padding: 5px ;
+    margin:  5px;
+    color: rgba(255, 255, 255, 0.835);
+    font-size: 1.3rem;
+}
+.navbar ul a:hover{
+    color: white;
+    
+}
+
+
+
+.li_active{
+    color: white!important;
+}
+
+.nav_search{
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.nav_search input {
+     width: 222px;
+    height: 33px;
+    border-radius: 15px;
+}
+.nav_search button {
+    background: transparent;
+    border: none;
+}
+
+.nav_search input::placeholder {
+    color: rgb(55, 182, 23, 0.911);
+    margin-left: 20px!important;
+}
+
+.nav_search button i{
+    color: rgb(55, 182, 23, 0.911);
+
+    font-size:33px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.home_text{
+    border: 1px solid red;
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    color: white;
+    
+}
+
+.home_text h1{
+    font-size: 34px;
+    line-height: 2;
+    margin: 12px;
+
+}
+
+.home_text p{
+    font-size:23px;
+    line-height:1.4;
+    margin: 12px;
+
+}
+
+.home_text button{
+    border-radius: 15px;
+    font-size:23px;
+    margin: 12px;
+
+    padding: 20px;
+}

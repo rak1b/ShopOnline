@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NatureBd</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel='stylesheet' media='screen and (max-width: 1065px)' href='../css/web3_phone.css'> -->
+    <link rel='stylesheet' href='../css/responsive_nav.css'>
+</head>
+<body>
+    <section class="home">
+            <nav class="navbar">
+                <div class="logo">
+                    <h1><a href="">NatureBd</a></h1>
+                </div>
+                <div id = 'nav_open' class="phn_nav">
+                    <span   class="cross"><i onclick="close_nav()" class="fa fa-arrow-circle-left"></i></span>
+                    <ul class="nav_items">
+                        <li><a class='li_active'href="https://www.youtube.com">Home</a></li>
+                        <li><a href="https://www.facebook.com">Places</a></li>
+                        <li><a href="">Images</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Upload</a></li>
+                    </ul>
+    
+                    <div class="nav_search">
+                        <input type="text" placeholder="Search Places">
+                        <button>                    
+                            <i class="fa fa-search"></i>
+                        </button>
+    
+                    </div>
+                </div>
+                <span   class="three_dot"><i onclick="open_nav()"  class="fa fa-align-justify"></i></span>
+            </nav>
+
+          
+    </section>
+    <script>
+        function open_nav(){
+             document.getElementById('nav_open').style.width = "290px";
+
+        }
+
+        function close_nav(){
+             document.getElementById('nav_open').style.width = "0px";
+
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+*{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Baloo Bhai 2', cursive;
+}
+
+.back-img{
+	background: url("../img/sport1.jpg") no-repeat center center fixed;
+	width: 100%;
+	height: 100vh;
+	background-size: cover;
+	position: absolute;
+	top: 0;
+	
+}
+/*$$$$$$$$$$$$$$$__Left Section__$$$$$$$$$$$$$$*/
+.navbar{
+	background: #00000080;
+	height: 100px;
+	border-radius:2%;
+
+
+}
+.left{
+	/*border: 20px green solid;*/
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 33%;
+
+}
+
+.logo{
+	width: 200px;
+	/*margin:auto;*/
+}
+.logo h2{
+	color: #14C6C8;
+	text-align: center;
+
+}
+
+.logo img{
+	width: 55px;
+	font-color:white;
+	filter: invert(100%);
+	display: block;
+	margin:auto;
+}
+
+
+
+/*$$$$$$$$$$$$$$$__Left Section Ends__$$$$$$$$$$$$$$*/
+
+
+
+/*$$$$$$$$$$$$$$$__Mid Section__$$$$$$$$$$$$$$*/
+
+.mid{
+	/*border: 20px red solid;*/
+	width: 33%;
+    margin: auto;
+    color: white;
+    position: relative;
+    top: 26px;
+}
+
+
+}
+
+
+.nav ul{
+	list-style: none;
+}
+
+.nav ul li{
+	display: inline-block;
+
+}
+.nav ul a{
+	color: white;
+	
+	padding: 0px 15px;
+	font-size: 25px;
+	text-decoration: none;
+
+}
+
+.nav ul a:hover{
+	text-decoration:underline; 
+	text-decoration-color:#503D8F;
+}
+/*$$$$$$$$$$$$$$$__Mid Section__$$$$$$$$$$$$$$*/
+
+/*$$$$$$$$$$$$$$$__Nav Right Section__$$$$$$$$$$$$$$*/
+
+.right{
+	/*border: 2px yellow solid;*/
+	position:absolute;
+	top: 30px;
+	right: 10px;
+	width: 33%;
+	/*color: white;*/
+
+}
+
+.buttons{
+	width: 200px;
+	position: relative;
+	top: 0;
+	left: 60%;
+	}
+
+.buttons button{
+	background:black;
+	color: #14C6C8;
+	padding: 4px 10px;
+	font-family: 'Baloo Bhai 2', cursive;
+	border: 2px solid #480ABB;
+	border-radius:20%;
+
+	
+}
+
+.btn1{
+	margin:0px 20px;
+}
+
+
+.buttons button:hover{
+	/*border:1px #D59393 solid;*/
+	background: #503D8F;
+	color: white;
+
+
+}
+
+/*$$$$$$$$$$$$$$$_Nav rght Section__$$$$$$$$$$$$$$*/
+
+
+/*$$$$$$$$$$$$$$$__Form Section__$$$$$$$$$$$$$$*/
+
+.form_section{
+	color: white;
+	border: 2px solid #503D8F;
+	width: 400px;
+	height: 500px;
+	position: absolute;
+	top: 180px;
+	left: 200px;
+	background: #252f3554;
+	border-radius:10%;
+
+
+}
+
+input{
+	width: 80%;
+	padding: 5px;
+	margin: 20px 40px;
+	border: 2px solid #480ABB;
+	border-radius:20%;
+}
+input::placeholder{
+	color: #0017F9;
+}
+
+input:hover{
+	background: #503D8F;
+	color:white;
+
+}
+
+
+.form{
+	margin-top: 50px;
+
+}
+.form p{
+	text-align: center;
+	color: yellow;
+	background:#4E20E37D; 
+}
+.inp-button{
+	width: 100px;
+	height: 40px;
+	display: block;
+	margin: auto;
+	margin-top: 20px;
+
+	background:black;
+	color: #14C6C8;
+	padding: 4px 10px;
+	font-family: 'Baloo Bhai 2', cursive;
+	border: 2px solid #480ABB;
+	border-radius:20%;
+}
+
+.inp-button:hover{
+	/*border:1px #D59393 solid;*/
+	background: #503D8F;
+	color: white;
+
+
+}
