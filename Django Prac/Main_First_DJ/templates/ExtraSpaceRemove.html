@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+
+
+ 
+    
+ {%block content%}
+
+ <div class=" container mt-5">
+    <form class="form-group" action="/ExtraSpaceRemove/" method="POST">
+      {% csrf_token %}
+    <label for="exampleFormControlTextarea1"><h4>Remove Extra Space:</h4></label>
+    <textarea class="form-control" name="extra_space_val" id="exampleFormControlTextarea1" rows="5"></textarea>
+    <button class="Submit btn-success h-25 mt-4">Remove</button>
+
+    </form>
+
+    <div>
+      <pre>Your Text : {{origin}}</pre>
+      <pre>FIltered Output : {{filtered}}</pre>
+      
+    </div>  
+
+  </div>
+   
+
+ 
+    {% endblock%}
