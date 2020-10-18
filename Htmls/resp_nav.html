@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <script src="../js/jqry.js"></script>
+    <link rel="stylesheet" href="../css/resp_nav.css" />
+  </head>
+  <body>
+    <section class="nav_section">
+      <div class="phn_nav">
+        <div class="phn_nav_logo">
+          <h1><a href="">MyWeb</a></h1>
+        </div>
+        <span class="nav_show"
+          ><i id="toggle_icon" class="fa fa-bars three_dot"></i
+        ></span>
+        <!-- <span class="nav_show"><i class="fa fa-times cross"></i></span> -->
+      </div>
+
+      <nav class="resp_nav">
+        <div class="nav_logo">
+          <h1><a href="">MyWeb</a></h1>
+        </div>
+        <div class="nav_items">
+          <ul class="nav_ul">
+            <li><a href="">Home</a></li>
+            <li><a href="">Contact us</a></li>
+            <li><a href="">About us</a></li>
+            <li><a href="">Services</a></li>
+            <li><a href="">Item5</a></li>
+          </ul>
+        </div>
+        <div class="nav_search">
+          <input type="text" placeholder="Search" />
+          <button>Search</button>
+        </div>
+      </nav>
+    </section>
+    <script>
+      $(".three_dot").click(function () {
+        $(".resp_nav").toggle(function () {
+          $(".resp_nav").width("100%");
+        });
+      });
+    </script>
+  </body>
+</html>
