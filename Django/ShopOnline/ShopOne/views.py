@@ -1,7 +1,8 @@
 from django.db.models.aggregates import Count
+from django.http import request
 from django.shortcuts import render
 from django.http import HttpResponse
-from ShopOne.models import products
+from .models import products,contact
 
 
 def navview(request):
@@ -13,7 +14,33 @@ def imageview(request):
     return render(request, "shop/img.html", rk)
     # return render(request, 'shop/img.html',{'data':data})
 
+def contactview(request):
+    if (request.method == "POST"):
+        print(request)
+        print("printed")
+    else:
+        print("Not request")
+    return render(request,'shop/contact.html')
+    
+def aboutview(request):
+    return render(request,'shop/about_us.html')
 
+def feedbackview(request):
+    if (request.method == "POST"):
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        desc = request.POST.get("desc")
+        print(name)
+        print(email)
+        print(desc)
+        print("Feedback printed")
+
+        add_db_contact = contact(contact_name=name,contact_email = email,contact_desc = desc)
+        add_db_contact.save()
+    else:
+        print("Not request")
+    return render(request,'shop/feedback.html')
+    
 def homeview(request):
     prods = products.objects.all()
     category_list = set()
@@ -43,6 +70,19 @@ def pracview(request):
     rk = {"product": prods, "range": range(car_length),'all_cats':category_list}
     return render(request, "shop/prac.html", rk)
 
+def productview(request,pr_id):
+    product = products.objects.filter(product_id=pr_id)
+    print(product)
+    return render(request,"shop/product_view.html",{'product':product})
+
+
+def cart_detailsview(request):
+    prods = products.objects.all()
+
+    return render(request,"shop/cart_details.html",{'product':prods})
+
+def checkoutview(request):
+    return render(request,"shop/checkout.html")
 
 
 

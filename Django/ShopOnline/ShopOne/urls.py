@@ -18,10 +18,21 @@ from django.urls import path, include
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
+
+
 urlpatterns = [
     path('img/', views.imageview, name='imageView'),
     path('home/', views.homeview, name='homeView'),
     path('prac/', views.pracview, name='pracView'),
     path('nav/', views.navview, name='navView'),
+    path('contact/', views.contactview, name='contactView'),
+    path('about/', views.aboutview, name='aboutView'),
+    path('feedback/', views.feedbackview, name='feedbackView'),
+    path('product/<int:pr_id>', views.productview, name='productView'),
+    path('cart/',views.cart_detailsview,name='cart_detailsView'),
+    path('checkout/',views.checkoutview,name='checkoutView'),
+
+
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

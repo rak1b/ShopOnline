@@ -20,15 +20,23 @@ $(document).ready(function () {
         },
       },
       {
-        breakpoint: 1000,
+        breakpoint: 1920,
         settings: {
           item: 5,
+          // slideMove: 2,
+          // slideMargin: 6,
+        },
+      },
+      {
+        breakpoint: 1000,
+        settings: {
+          item: 4,
         },
       },
       {
         breakpoint: 780,
         settings: {
-          item: 4,
+          item: 3,
           slideMove: 1,
         },
       },
@@ -41,22 +49,4 @@ $(document).ready(function () {
       },
     ],
   });
-});
-
-if (localStorage.getItem("cart") == null) {
-  var cart = {};
-} else {
-  cart = JSON.parse(localStorage.getItem("cart"));
-}
-
-$(".add_cart").click(function () {
-  console.log("clicked");
-  var id = $(this).attr("id").toString();
-  console.log(id);
-  console.log(cart[id]);
-  if (cart[id] != undefined) {
-    cart[id] = cart[id] + 1;
-  } else {
-    cart[id] = 1;
-  }
 });

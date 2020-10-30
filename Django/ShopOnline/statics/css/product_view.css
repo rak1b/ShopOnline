@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .product_section {
+    border-image-width: cover;
+    height: auto;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    box-shadow: -1px -2px 13px rgba(255, 255, 255, 0.75),
+      1px 2px 3px rgba(80, 72, 72, 0.75);
+  }
+  /* .product_section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    background: url(../img/bike.jpg) fixed center center;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+    opacity: 0.9;
+  } */
+
+  .product_heading {
+    box-shadow: -1px -2px 13px rgba(255, 255, 255, 0.75),
+      1px 2px 3px rgba(80, 72, 72, 0.75);
+    border-radius: 2px;
+    width: 80%;
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+  }
+
+  .product_heading h1 {
+    font-size: 1.8rem;
+    padding: 10px 0;
+  }
+  .product_image {
+    width: 40%;
+    /* background: rgb(19, 32, 44); */
+    /* border: 1px solid red; */
+    height: 600px;
+    min-width: 420px;
+  }
+
+  .product_details {
+    width: 40%;
+
+    height: 600px;
+    min-width: 420px;
+    color: black;
+    box-shadow: -1px -2px 13px rgba(255, 255, 255, 0.75),
+      1px 2px 3px rgba(80, 72, 72, 0.75);
+    
+  }
+  .product_details p{
+    color: black;
+
+  }
+  .details_container {
+    width: 348px;
+    display: block;
+    margin: auto;
+    
+    padding: 5px 20px;
+  }
+
+  .img_container {
+    width: 348px;
+    height: 400px;
+    display: block;
+    margin: auto;
+    /* border: 1px solid red; */
+    margin-bottom: 20px;
+    box-shadow: -1px -2px 13px rgba(255, 255, 255, 0.75),
+      1px 2px 13px 5px rgba(80, 72, 72, 0.75);
+    border-radius: 40px;
+  }
+
+  .img_container img {
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+    border-radius: 40px;
+
+    /* object-fit: cover; */
+  }
+
+  .product_button {
+    display: flex;
+    justify-content: center;
+  }
+
+  .view_review {
+    margin-left: 10px;
+  }
+
+  /* ___________ADD CART CSS_________ */
+  .cart_add_minus {
+    display: flex;
+    width: 99px;
+    height: 37px;
+    background: #0174a1;
+    border-radius: 5px;
+  }
+
+  
+  .plus_btn,.minus_btn{
+    width: 33.3%;
+  background: transparent;
+   border: none;
+
+
+}
+
+  .plus_btn:hover,.minus_btn:hover{
+    background: #086386;
+    transition: .4s ease-in-outs;
+    border-radius: 5px;
+  
+  
+    }
+
+.number_span {
+	width: 33.3%;
+	height: 100%;
+	font-size: 12px;
+	text-align: center;
+	margin: 0;
+  background: #259ac9;
+	padding: 8px;
+}

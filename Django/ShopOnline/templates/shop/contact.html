@@ -1,0 +1,54 @@
+{% extends 'shop/nav.html' %}
+
+
+{% block css %}
+    <style>
+        .form-control {
+	display: block;
+	width: 100%;
+	height: calc(1.5em + .75rem + 2px);
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #495057;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 2px solid #77b1ba;
+	border-radius: .25rem;
+	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+    
+    </style>
+{% endblock  %}
+    
+        
+
+{% block content %}
+    <section class='contact_section mt-5'>
+        <div class="container">
+            <h1 class='text-center text-info mt-2'>Contact Us </h1>
+            <form  method='POST' action='{% url 'feedbackView' %}' class='form-group mt-2'>
+                {% csrf_token %} 
+                <input type="text" class='form-control mt-2' placeholder='Enter Name:' name="name" id="name">
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Check this checkbox to continue.</div>
+                <input type="email" class='form-control mt-2' placeholder='Email:' name="email" id="email">
+                <textarea  class='form-control mt-2 mb-5' placeholder="Enter Suggestion:" id="desc" name = 'desc' cols="30" rows="10"></textarea>            
+                <button type='submit' class='btn btn-success w-25 d-block m-auto mt-5' data-toggle="modal" data-target="#staticBackdrop">Submit</button>
+
+                 </form>
+
+
+           
+
+        </div>
+    </section>
+
+{% block js %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock  %}
+
+{% endblock  %}

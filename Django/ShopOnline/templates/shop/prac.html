@@ -1,197 +1,87 @@
-{%load static%}
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'shop/nav.html' %}
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA_Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
-  <link rel="stylesheet" href="{%static 'css/home.css' %}" />
-  <!-- <link rel="stylesheet" href="{%static 'css/imgfit.css' %}"> -->
-  <link rel="stylesheet" href="{%static 'css/lightslider.css' %}" />
-  <script src="{%static 'js/jqry.js'%}"></script>
-  <script src="{%static 'js/lightslider.js'%}"></script>
-  <script src="{%static 'js/script.js'%}"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+{% load static %}
 
+
+{% block css %}
   <style>
-    * {
-      font-family: "Poppins", sans-serif;
-    }
 
+  .fa{
+  cursor:pointer;
 
+  }
 
-    .navbar {
-      background: rgb(11, 67, 99) !important;
-      height: auto;
-      z-index: 100;
-    }
+  .cart_details h1,.cart_details ol li{
+  color:#094163;
 
-    .navbar-brand {
-      color: white !important;
-    }
+  }
+.cart_details {
+	display: none;
+  font-size:16px;
+	overflow: hidden;
+	width: 59%;
+	position: absolute;
+	top: 20%;
+	right: 19%;
+	z-index: 120;
+	height: auto;
+	border-radius: 11px;
+	background: #eeeeee;
+	box-shadow: 5px 5px 8px #5f5f5f, -5px -5px 8px #ffffff;
+}
 
-    .navbar ul li a {
-      color: white !important;
-    }
-
-    .navbar-toggler {
-      color: white;
-      background-color: rgba(14, 37, 59, 0.466);
-    }
-
-    .card {
-      width: 100px;
-      height: 250px;
-      margin-top: 20px;
-      /* background: rgb(11, 67, 99) !important; */
-      border-radius: 20px !important;
-    }
-
-
-    .card-img {
-      width: auto;
-      height: 100px;
-    }
-
-
-
-    .card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 15px 15px 0 0 !important;
-      border: 1px solid rgb(11, 67, 99);
-    }
-
-    .card-body {
-      border-radius: 0 0 25px 25px !important;
-
-      background: rgb(11, 67, 99) !important;
-      color: white;
-      height: 60px;
-    }
-
-    .card-body a {
-      margin: auto;
-      width: 100px;
-      font-size: 0.6rem;
-
-    }
-
-    .card-text {
-      font-size: 0.5rem;
-    }
-
-    .card-body h5 {
-      width: 134px;
-      font-size: 0.8rem;
-    }
-
-    .featured_section {
-      background: #8080800d;
-      min-height: 100vh;
-    }
-
-    .electronic_section {
-      background: white;
-      height: 100vh;
-
-    }
+.cart_header {
+	background: #094163;
+	height: 51px;
+	padding: 14px;
+	text-align: center;
+}
+  
+.cart_details ol li{
+  padding:6px;
+}
   </style>
-</head>
 
-<body>
-  <section class="home">
-    <nav class="navbar">
-      <div class="logo">
-        <h1><a href="">ShopOnline</a></h1>
-      </div>
-      <div id="nav_open" class="phn_nav">
-        <span class="cross"><i onclick="close_nav()" class="fa fa-arrow-circle-left"></i></span>
-        <ul class="nav_items">
-          <li>
-            <a class="li_active" href="https://www.youtube.com">Home</a>
-          </li>
-          <li><a href="https://www.facebook.com">Places</a></li>
-          <li><a href="">Images</a></li>
-          <li><a href="">About</a></li>
-          <li><a href="">Upload</a></li>
-        </ul>
+{% endblock  %}
 
-        <div class="nav_search">
-          <input type="text" placeholder="Search Places" />
-          <button>
-            <i class="fa fa-search"></i>
-          </button>
-        </div>
-      </div>
-      <span class="three_dot"><i onclick="open_nav()" class="fa fa-align-justify"></i></span>
-    </nav>
-  </section>
-
-  <section class="featured_section">
-    {% comment %} {% for i in  range %} {% endcomment %}
-
-    {% comment %} { % for cat  in all_cats} {% endcomment %}
-    
+{% block content%}
 
 
-    <div class="container pt-5">
 
-    {% for  cat in all_cats %}
-      <h6 class='text-center'>{{cat}}</h6>
-        <div class="caro">
-        {% for p in product%}
-            {% if p.category == cat %}
-          
-          <div class="card">
-            <div class="card-img">
-              <img src="/shop{{p.image.url}}" alt="Failed" />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">{{p.product_name}}</h5>
-              <p class="card-text">{{p.product_desc}}</p>
-              <a href="#" class="btn btn-primary d-block m-auto text-center"
-                >Go somewhere</a
-              >
-            </div>
-          </div>
-          {% endif %}
 
-             {% endfor %}
+
+
+    <div class=" cart_details text-center ">
+      <h6 class="cart_header">Cart Products</h6>  
+      <ol>
+        <li>Product : 500 BDT     10x</li>
+        <li>Product : 500 BDT     10x</li>
+        <li>Product : 500 BDT     10x</li>
+        <li>Product : 500 BDT     10x</li>
+        <li>Product : 500 BDT     10x</li>
+
         
-        </div>
-
-        {% endfor %}
-{% comment %} 
- {% for  cat in all_cats %}
-            <div style="width:300px;height:400px;background:red;margin:10px;">
-              <br>
-              <h5>rk</h5>
-              {{cat}}
-              {% for  j in  product %}
-                {% if  j.category == cat%}
-                <ul>
-                    <li>{{j.product_name}}</li>
-                    <li>{{j.product_desc}}</li>
-                
-                </ul>
-                {% endif %}
-              {%endfor%}
-            </div>    
-    {% endfor %} 
- {% endcomment %}
-
-
-
-
+      
+      
+      </ol>
     
-  </section>
+    </div>
 
-</body>
 
-</html>
+
+
+{% endblock  %}
+
+
+{% block js %}
+  <script src="{%static "js/jqry.js"%}"></script>
+  <script>
+
+  $(".cart_show").click(function () {
+  console.log("Clicked console ")
+    $('body').css("background",'#eeeeee');
+    $(".cart_details").slideToggle(400);
+      });
+  </script>
+{% endblock  %}
+  

@@ -1,0 +1,59 @@
+{% extends "shop/nav.html" %}
+{%load static%}
+
+
+{% block css%} 
+<link rel="stylesheet" href="{% static 'css/product_view.css' %}">
+{% endblock %}
+
+
+{%block content %}
+
+{% comment %} <h1 style="background: red">Product view</h1> {% endcomment %}
+{% for i in product %}
+
+
+<section>
+      <div class="product_heading">
+        <h1 class="text-center text-info">Product : {{i.product_name}}</h1>
+      </div>
+      <div class="product_section">
+        <div class="product_image">
+          <div class="img_container">
+            <img src="/shop{{i.image.url}}" alt="" />
+            
+          </div>
+          <div class="product_button">
+            <button id = "pr{{p.product_id}}" class=" add_cart btn btn-primary text-center" >Add Cart</button>             
+            <button class="btn btn-info view_review">View Reviews</button>
+          </div>
+        </div>
+
+        <div class="product_details">
+          <div class="details_container">
+          <p>{{i.product_desc}}</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias
+              aperiam nulla sed quasi. Nobis culpa laboriosam asperiores
+              accusamus, repellendus labore eius eum commodi, doloribus deserunt
+              possimus voluptates architecto minima! Expedita!
+            </p>
+
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias
+              aperiam nulla sed quasi. Nobis culpa laboriosam asperiores
+              accusamus, repellendus labore eius eum commodi, doloribus deserunt
+              possimus voluptates architecto minima! Expedita! Lorem ipsum dolor
+              sit amet consectetur, adipisicing elit. Alias aperiam nulla sed
+              quasi. Nobis culpa laboriosam asperiores accusamus, repellendus
+              labore eius eum commodi, doloribus deserunt possimus voluptates
+              architecto minima! Expedita!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% endfor %} 
+
+{% endblock %}

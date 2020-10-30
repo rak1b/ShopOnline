@@ -1,0 +1,90 @@
+{% extends 'shop/nav.html' %}
+{% load shop_custom_tags %}
+
+{% load static %}
+
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'css/cart_details.css' %}">
+
+{% endblock  %}
+
+{% block content%}
+
+
+
+
+
+
+    {% comment %} {% endcomment %}
+
+
+<div class="hidden_div d-none">
+{% for p in product %}
+
+<p  class="bg-danger hidden" id='name_pr{{p.product_id}}'>{{p.product_name}}</p>
+<p  class="bg-danger hidden" id='price_pr{{p.product_id}}'>{{p.price}}</p>
+
+
+
+
+
+{% endfor %}
+</div>
+
+
+
+
+
+ 
+<div class=" cart_details ">
+      <h6 class=" text-center cart_header">Cart Products</h6>  
+    <div class="cart_div">
+
+      <div id=""class="cart_li">
+
+        <ol id="cart_pr_name">
+
+
+        </ol>
+
+        <ul id="cart_pr_price" class="W">
+        
+        </ul>
+
+     </div>
+     <div class="clear_total">
+        <button class="btn btn-danger clear_cart">Clear Cart</button>
+        <h6 class="total_priceh6 text-center " >Total Price = <span id="total_price"></span></h6>
+
+
+     </div>
+
+     <div class="cart_footer_button">
+        <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+              <label style="margin-bottom: 20px;" class="form-check-label" for="defaultCheck1" >
+                  I,Username,Agree this conditions and rules
+              </label>
+
+          </div>
+         <a href="{% url 'checkoutView' %} " class="btn btn-info" style="margin-bottom: 40px;">Checkout</a>
+
+
+     </div>
+
+     
+    </div>
+
+
+
+
+{% endblock  %}
+
+
+{% block js %}
+<script src="{% static 'js/cart_details.js' %}"></script>
+
+{% endblock  %}
+  
