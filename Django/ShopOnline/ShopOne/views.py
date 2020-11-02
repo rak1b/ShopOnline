@@ -2,7 +2,7 @@ from django.db.models.aggregates import Count
 from django.http import request
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import products,contact
+from .models import products,contact,checkout_info
 
 
 def navview(request):
@@ -40,6 +40,32 @@ def feedbackview(request):
     else:
         print("Not request")
     return render(request,'shop/feedback.html')
+
+
+def checkout_feedbackview(request):
+    if (request.method == "POST"):
+        checkout_json = request.POST.get("checkout_json")
+        name = request.POST.get("checkout_name")
+        email = request.POST.get("checkout_email")
+        phone = request.POST.get("checkout_phone")
+        address = request.POST.get("checkout_address")
+        zip_code = request.POST.get("checkout_zip_code")
+        print(name)
+        print(email)
+        print("Feedback printed")
+
+        checkout = checkout_info(checkout_name=name,checkout_email = email,checkout_phone = phone,checkout_address=address,checkout_zip_code=zip_code,checkout_json =checkout_json )
+        checkout.save()
+        id = checkout.checkout_id
+        info = {
+        'name':name,
+        'tracker_id':id,
+        }
+
+
+    else:
+        print("Not request")
+    return render(request,'shop/checkout_feedback.html',info)
     
 def homeview(request):
     prods = products.objects.all()

@@ -31,6 +31,8 @@ urlpatterns = [
     path('product/<int:pr_id>', views.productview, name='productView'),
     path('cart/',views.cart_detailsview,name='cart_detailsView'),
     path('checkout/',views.checkoutview,name='checkoutView'),
+    path('checkout_feedback/', views.checkout_feedbackview, name='checkout_feedbackView'),
+
 
 
 

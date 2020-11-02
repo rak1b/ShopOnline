@@ -24,5 +24,18 @@ class contact(models.Model):
         return self.contact_name
 
 
+class checkout_info(models.Model):
+    checkout_id = models.AutoField(primary_key=True)
+    checkout_name = models.CharField(max_length=90)
+    checkout_phone = models.IntegerField(max_length=15)
+    checkout_email = models.EmailField( max_length=254)
+    checkout_address = models.CharField(max_length=200)
+    checkout_zip_code = models.CharField(max_length=10)
+    checkout_json = models.CharField(max_length=2000)
+
+    def __str__(self):
+        return str(self.checkout_id)
+
+
 
 #

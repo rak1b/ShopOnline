@@ -8,7 +8,7 @@ class Migration(migrations.Migration):
     dependencies = [
         ('ShopOne', '0004_auto_20201025_1600'),
     ]
-
+    
     operations = [
         migrations.AddField(
             model_name='contact',

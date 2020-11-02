@@ -2,19 +2,16 @@
 {% block content %}
 <button class="btn button-click btn-danger">Click me</button>
 <div class="container change_div">
-    <h1 class="text-info">This will change</h1>
+    <h1>This will change</h1>
 </div>
 {% endblock %}
 {% block js %}
 <script>
-$('document').ready(function() {
+jQuery(document).ready(function() {
 
     $('.button-click').click(function() {
-      console.log('Clicked ')
-      $.get('../cart_details.html',function (data,status) {
-        $('.change_div').html(data);
-      });
-        
+    	console.log('Clicked ')
+        $('.change_div').load('shop/cart_details.html')
         
     });
 });

@@ -17,7 +17,8 @@ function show_cart(cart) {
     var sum = 0;
 
     for (var key in cart) {
-      sum = sum + cart[key];
+      sum = sum + cart[key][0];
+      console.log(cart[key][0]);
     }
 
     $("#all_cart_pc").text(sum);
@@ -39,9 +40,13 @@ $(document).ready(function () {
     var id = $(this).attr("id");
 
     if (cart[id] != undefined) {
-      cart[id] = cart[id] + 1;
+      qty = cart[id][0] + 1;
+      p_name = $("#name_" + id).text();
+      cart[id] = [qty, p_name];
     } else {
-      cart[id] = 1;
+      qty = 1;
+      p_name = $("#name_" + id).text();
+      cart[id] = [qty, p_name];
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -51,7 +56,7 @@ $(document).ready(function () {
 
     var btn_id = $(this).attr("id"); //getting the value from localStorage using this clicked button,every button has unique id_____
 
-    var btn_val = getmycart[btn_id]; // Replace when click add Cart button______
+    var btn_val = getmycart[btn_id][0]; // Replace when click add Cart button______
     // ____unique id created using buttton id___
 
     $(this).replaceWith("\n        <div class='cart_add_minus'>\n          <button class=\"plus_btn\" id=\"plus_btn_".concat(btn_id, "\">+</button>\n          <p class=\"number_span\" id=\"number_span_").concat(btn_id, "\">").concat(btn_val, "</p>\n          <button class=\"minus_btn\" id=\"minus_btn_").concat(btn_id, "\">-</button>\n        </div>\n      ")); // ((((((((((((((((((((PLus button))))))))))))))))))))
@@ -59,7 +64,7 @@ $(document).ready(function () {
 
     $("#plus_btn_".concat(btn_id)).click(function () {
       btn_val++;
-      cart[btn_id] = btn_val;
+      cart[btn_id][0] = btn_val;
       localStorage.setItem("cart", JSON.stringify(cart));
       console.log(btn_val);
       $("#number_span_".concat(btn_id)).text(btn_val);
@@ -69,7 +74,7 @@ $(document).ready(function () {
     $("#minus_btn_".concat(btn_id)).click(function () {
       if (btn_val >= 1) {
         btn_val--;
-        cart[btn_id] = btn_val;
+        cart[btn_id][0] = btn_val;
         localStorage.setItem("cart", JSON.stringify(cart));
       }
 
@@ -79,11 +84,13 @@ $(document).ready(function () {
     });
   });
 });
-$(".clear_cart").click(function () {
-  localStorage.clear();
-  $("#cart_details").html("<h5 class=\"text-center bg-primary\">Cart Cleared,add new</h5>");
-  $("#cart_pr_name").html("");
-  $("#cart_pr_price").html("");
-  $("#all_cart_pc").text(0);
-  $("#all_cart_phn").text(0);
+$("document").ready(function () {
+  $(".clear_cart").click(function () {
+    localStorage.clear();
+    $("#cart_details").html("<h5 class=\"text-center bg-primary\">Cart Cleared,add new</h5>");
+    $("#cart_pr_name").html("");
+    $("#cart_pr_price").html("");
+    $("#all_cart_pc").text(0);
+    $("#all_cart_phn").text(0);
+  });
 });
