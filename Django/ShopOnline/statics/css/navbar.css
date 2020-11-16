@@ -14,7 +14,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: white;
   font-family: "Baloo 2", cursive;
 }
 .nav_section {
@@ -157,7 +156,7 @@
     right: 0px;
     overflow: hidden;
     transition: ease;
-    top: 120px;
+    top: 100px;
     background: rgba(4, 20, 29, 0.96);
   }
 

@@ -32,15 +32,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "ShopBlog.apps.ShopblogConfig",
     "ShopOne.apps.ShoponeConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    # 'livereload',
     "django.contrib.staticfiles",
-     'django_seed',
+    'Blog_Shop',
 ]
 
 MIDDLEWARE = [

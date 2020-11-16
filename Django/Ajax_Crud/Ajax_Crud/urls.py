@@ -19,4 +19,6 @@ from Crud_App import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.homeView,name="homeView"),
+    path('delete/<int:id>/',views.delete_data,name="delete_data"),
+    path('success',views.successView,name="successView"),
 ]

@@ -1,0 +1,71 @@
+<script type="text/javascript">
+// $('.btn1').on('submit',function(e){
+// 	e.preventDefault();
+// 	var fname = $('#first_name').val();
+// 	var lname = $('#last_name').val();
+// 	var mydata = {
+// 		fname:fname,
+// 		lname:lname,
+// 		csrfmiddlewaretoken:'{{csrf_token}}',
+// 		dataType: "json",
+// 	}
+
+// 	$.ajax({
+// 		type:'POST',
+// 		url:"{% url 'second_ajax_posting' %}",
+// 		data:mydata,
+
+// 		success:function(data){
+//         	console.log('success')
+//             $('#output').html(data.msg) /* response message */
+
+// 		},
+
+// 		error: function(err){
+// 			console.log("error " ,err)
+// 		}
+
+
+// 	})
+// })
+
+
+
+// $('#form').on('submit', function(e) {
+
+$('.btn1').click(function(e) {
+
+
+    e.preventDefault();
+
+    var data = {
+        first_name: $('#first_name').val(),
+        last_name: $('#last_name').val(),
+        csrfmiddlewaretoken: '{{ csrf_token }}',
+        dataType: "json",
+
+    }
+    
+    var url =  "{% url 'second_ajax_posting' %}";
+    // var url ='/second_ajax_posting';
+
+    $.ajax({
+        type: "POST",
+        url: "{% url 'second_ajax_posting' %}",
+        /* django ajax posting url  */
+        data: data,
+
+        success: function(data) {
+            $('#output').html(data.msg) /* response message */
+        },
+
+        failure: function() {
+
+        }
+
+
+    });
+
+
+});
+</script>

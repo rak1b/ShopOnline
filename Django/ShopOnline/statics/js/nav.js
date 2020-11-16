@@ -85,6 +85,7 @@ $(document).ready(function () {
     // ((((((((((((((((((((minus button))))))))))))))))))))
     $(`#minus_btn_${btn_id}`).click(function () {
       if (btn_val >= 1) {
+
         btn_val--;
         cart[btn_id][0] = btn_val;
         localStorage.setItem("cart", JSON.stringify(cart));

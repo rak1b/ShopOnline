@@ -1,0 +1,35 @@
+ 
+    <script type="text/javascript">
+    $('#form').on('submit', function(e) {
+
+    // $('#form').click(function(e)) {
+
+
+    e.preventDefault();
+
+    $.ajax({
+        type: "POST",
+        url: "{% url 'ajax_posting' %}",
+        /* django ajax posting url  */
+        data: {
+            first_name: $('#first_name').val(),
+            last_name: $('#last_name').val(),
+            csrfmiddlewaretoken: '{{ csrf_token }}',
+            dataType: "json",
+
+        },
+
+        success: function(data) {
+            $('#output').html(data.msg) /* response message */
+        },
+
+        failure: function() {
+
+        }
+
+
+    });
+
+
+    });
+    </script>

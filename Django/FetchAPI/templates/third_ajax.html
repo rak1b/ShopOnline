@@ -1,0 +1,36 @@
+<script type="text/javascript">
+$('document').ready(() => {
+
+
+    $('.btn1').click((e) => {
+        e.preventDefault();
+        let name = $('#name').val();
+        let email = $('#email').val();
+        let password = $('#password').val();
+        console.log(name, email, password)
+
+        let data = {
+            name: name,
+            email: email,
+            password: password,
+            csrfmiddlewaretoken: '{{ csrf_token }}',
+            dataType: 'json',
+        }
+
+        $.ajax({
+            method: 'POST',
+            url: "{% url 'third_ajax' %}",
+            data: data,
+            success: (data) => {
+                $('#output').html(data.msg)
+            },
+            error: (err) => {
+                console.log("Error", err)
+            },
+
+
+        })
+
+    })
+})
+</script>

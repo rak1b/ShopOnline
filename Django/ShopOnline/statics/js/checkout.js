@@ -24,10 +24,16 @@ $("document").ready(function() {
             console.log(pname);
             var qty = cart[item][0];
             console.log(qty);
-            checkout_str += `  
+            if (qty === 0) {
+                continue;
+            } else {
+
+                checkout_str += `  
         <li class="list-group-item d-flex justify-content-between align-items-center text-info">${pname}
             <span class="badge badge-info badge-pill">${qty}</span>
         </li>`;
+            }
+
         }
     }
 

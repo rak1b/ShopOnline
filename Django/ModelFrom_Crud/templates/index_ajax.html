@@ -1,0 +1,162 @@
+<script type="text/javascript">
+$(document).ready(function() {
+    // $('.save_btn').click(function(e){
+    $('.myform').on('submit', function(e) {
+        e.preventDefault();
+        console.log("Clicked on save")
+        var id = $('#hidden_input').val()
+        var name = $('#id_st_name').val()
+        let email = $('#id_st_email').val()
+        let password = $('#id_st_pass').val()
+        let csr = $("input[name = csrfmiddlewaretoken]").val()
+        console.log(csr)
+
+        if (name.length < 3) {
+            console.log("Inavalid name")
+        } else if (email.length < 6) {
+            console.log("Inavalid email")
+
+        } else if (password.length < 6) {
+            console.log("Inavalid password")
+
+        } else {
+
+            var url = "{% url 'saveView' %}";
+
+            var mydata = {
+                id: id,
+                nm: name,
+                em: email,
+                pd: password,
+                csrfmiddlewaretoken: '{{csrf_token}}',
+                dataType: 'json'
+            }
+
+            console.log(typeof(mydata))
+
+            $.ajax({
+                url: url,
+                method: "POST",
+                data: mydata,
+                success: function(data) {
+                    console.log(data.msg)
+                    console.log(data.student_data)
+                    $('form')[0].reset();
+                    $('#hidden_input').val('');
+                    var std = data.student_data
+                    console.log(std[0].st_name)
+                    var str = ''
+                    for (i in std) {
+                        var id = std[i].st_id
+
+                        str += `
+                        <tr id='tr${std[i].st_id}'>
+                            <td>${std[i].st_id}</td>
+                            <td>${std[i].st_name}</td>
+                            <td>${std[i].st_email}</td>
+                            <td>${std[i].st_pass}</td>
+                            <td>
+                                <a data-sid =${std[i].st_id} class="btn btn-info edit_btn">Edit</a>
+
+                            <a data-sid =${std[i].st_id} href="" class="btn btn-danger delete_btn">Delete</a>
+                                
+                            </td>
+                        </tr>`
+
+                    }
+                    var strs = ''
+
+                    $('.mytbody').html(str)
+                },
+                error: function(error) {
+                    console.log(error)
+                    console.log(url)
+                    console.log('Failed to sent')
+                }
+
+            })
+        }
+
+
+    })
+
+    // ____________Update Info Done here_________
+
+
+    // _______Starting Delete __________
+
+    // $('.delete_btn').click(function(e){
+    $('.mytbody').on('click', '.delete_btn', function(e) {
+        e.preventDefault();
+        let id = $(this).attr('data-sid')
+        let data = {
+            id: id,
+            csrfmiddlewaretoken: "{{csrf_token}}",
+
+        }
+        var c_this = this;
+        $.ajax({
+            method: "POST",
+            url: "{% url 'deleteView' %}",
+            data: data,
+            success: function(data) {
+                console.log(data.info)
+                // $(`#tr${id}`).preventDefault()
+
+                $(c_this).closest('tr').fadeOut()
+            },
+            error: function(err) {
+                console.log("Error Occured", err)
+            }
+
+        })
+    })
+
+    // ___________Delete Done_____________
+
+
+
+
+    // ________Edit button starting_________________
+
+    $('.mytbody').on('click', '.edit_btn', function(e) {
+        e.preventDefault();
+
+        let id = $(this).attr('data-sid')
+        let data = {
+            id: id,
+            csrfmiddlewaretoken: "{{csrf_token}}",
+
+        }
+        let url = $('.edit_btn').attr('data-url')
+        console.log(url)
+
+        $('#hidden_input').val(id);
+
+        var c_this = this;
+        $.ajax({
+            method: "POST",
+            url: url,
+            data: data,
+            success: function(data) {
+
+                console.log(data.info)
+                // $(`#tr${id}`).preventDefault()
+                console.log(data.name)
+                $('#id_st_name').val(data.name);
+                $('#id_st_email').val(data.email);
+                $('#id_st_pass').val(data.password);
+
+            },
+            error: function(err) {
+                console.log("Error Occured", err)
+            }
+
+        })
+    })
+
+
+
+
+});
+</script>

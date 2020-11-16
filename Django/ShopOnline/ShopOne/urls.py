@@ -29,8 +29,11 @@ urlpatterns = [
     path('about/', views.aboutview, name='aboutView'),
     path('feedback/', views.feedbackview, name='feedbackView'),
     path('product/<int:pr_id>', views.productview, name='productView'),
+    path('order', views.orderview, name='orderView'),
     path('cart/',views.cart_detailsview,name='cart_detailsView'),
     path('checkout/',views.checkoutview,name='checkoutView'),
+    path('tracker/',views.trackerview,name='trackerView'),
+    path('tracker_response/',views.tracker_responseview,name='tracker_responseView'),
     path('checkout_feedback/', views.checkout_feedbackview, name='checkout_feedbackView'),
 
 

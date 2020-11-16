@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="{% static 'blog/css/nav.css' %}" />
+
+    <script src="{% static 'js/jqry.js' %}"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+
+    <title>{% block title %} {% endblock %}</title>
+
+    {% block css %} {% endblock %}
+  </head>
+
+  <body>
+    <section class="nav_section ">
+      <div class="phn_nav">
+        <div class="phn_nav_logo">
+          <h1><a href="">ShopOnline Blog</a></h1>
+        </div>
+        {% comment %} <a href="" class=""
+          ><i id = "cart_icon"class="fa fa-shopping-cart"></i> (<span id="all_cart_phn">0</span>)</a
+        > {% endcomment %}
+
+
+        <span class="nav_show"
+          ><i id="toggle_icon" class="fa fa-bars three_dot"></i
+        ></span>
+        <!-- <span class="nav_show"><i class="fa fa-times cross"></i></span> -->
+      </div>
+
+      <nav class="resp_nav ">
+        <div class="nav_logo">
+          <h1><a href="">ShopOnline Blog</a></h1>
+        </div>
+        <div class="nav_items">
+          <ul class="nav_ul">
+            <li><a href="{% url 'bloghomeView' %}">Home</a></li>
+            <li><a href="{% url 'contactView' %}">Contact us</a></li>
+            <li><a href="{% url 'aboutView' %}">About us</a></li>
+            <li><a href="{% url 'homeView' %}">Shop</a></li>
+            
+          </ul>
+        </div>
+        <div class="nav_search">
+          <input type="text" placeholder="Search" />
+          <button>Search</button>
+        </div>
+      </nav>
+    </section>
+
+
+
+
+   
+    {% block content%}
+     {% endblock %}
+     
+ {% block js %} 
+    <script type="text/javascript" src="{%static "blog/js/nav.js"%}"></script>
+   {% endblock %}
+  </body>
+</html>

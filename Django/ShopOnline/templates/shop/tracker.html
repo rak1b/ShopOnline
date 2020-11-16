@@ -1,0 +1,29 @@
+{% extends 'shop/nav.html' %}
+{% load static%}
+
+{% block css %}
+
+
+
+<script src="{%static 'js/shop_tracker.js'%}"></script>
+
+
+	
+{% endblock %}
+
+{% block content %}
+<form class="form text-center mt-5 tracker_form">
+	{% csrf_token %}
+	<h4 class="text-info mb-3">Track Order</h4>
+    <input class="form-control  mt-2 w-50 mx-auto " type="text"  id = 'tr_id' placeholder="Enter Tracker ID :">
+    <input id ='tr_email' class="form-control mt-3 w-50 mx-auto" type="email" placeholder="Enter Email ">
+    <button data-url = "{%url 'tracker_responseView'%}" data-csrf = "{{csrf_token}}" class="btn btn-success mt-5 tracker_btn">Get Info</button>
+</form>
+	
+	<div class="container tracker_info text-center mt-5">
+		
+		
+
+	</div>
+{% endblock %}
+

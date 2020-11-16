@@ -1,8 +1,9 @@
 from django.db.models.aggregates import Count
 from django.http import request
 from django.shortcuts import render
-from django.http import HttpResponse
-from .models import products,contact,checkout_info
+from django.http import HttpResponse,JsonResponse
+from .models import products,contact,checkout_info,shop_tracker
+import  json
 
 
 def navview(request):
@@ -111,7 +112,61 @@ def checkoutview(request):
     return render(request,"shop/checkout.html")
 
 
+def orderview(request):
+    checkout = checkout_info.objects.all()
+    # print(checkout)
+    for i in checkout:
+        print(i.checkout_name)
+        var = i.checkout_json
+        print(i.checkout_json)
 
+   
+
+    return render(request,"shop/orders.html")
+
+
+def trackerview(request):
+    return render(request,'shop/tracker.html')
+
+
+def tracker_responseview(request):
+    myls = []
+    mydesc = []
+    if request.is_ajax():
+        tr_id = request.POST.get('tr_id')
+        tr_email = request.POST.get('tr_email')
+        if tr_id != '' and tr_email != '':
+            print(tr_id,tr_email)
+            checkout = checkout_info.objects.all()
+            for i in checkout:
+                myls.append(i.checkout_email)
+            print(myls)
+
+            if tr_email in myls:
+                tr_info = shop_tracker.objects.filter(tracker_id = tr_id) 
+                if(tr_info):
+                    for i in tr_info:
+                        temp = [i.tracker_desc,i.tracker_date]
+                        print(i.tracker_desc)
+                        print(i.tracker_date)
+                        # print(json.dumps(temp))
+                        mydesc.append(temp)
+                    msg = 1
+
+
+                else:
+                    print("Not valid email")
+                    msg = 0
+                    mydesc = ['Invalid Tracker Id Or email']
+
+
+              
+        response = {
+            'msg':msg,
+            'desc':mydesc
+        }
+        print(mydesc)
+        return JsonResponse(response)
 
 
 

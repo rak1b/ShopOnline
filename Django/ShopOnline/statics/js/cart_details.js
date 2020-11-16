@@ -40,7 +40,9 @@ $(document).ready(function() {
         console.log("total_price =" + total_price + "+" + price);
         var single_price = parseInt(qty) * parseInt(price);
         total_price = total_price + single_price;
-
+        if(qty === 0){
+            continue;
+        }
         cart_str_name += `
   <li class="text-info">${i++}.${product_name} </li> </br>
 `;
