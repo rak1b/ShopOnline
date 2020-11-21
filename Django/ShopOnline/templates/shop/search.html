@@ -15,7 +15,7 @@
    {% for cat in all_cats %}
     <h6 class="text-center text-info">{{cat}}</h6>
     <div class="caro">
-      {% for p in product%} {% if p.category == cat %}
+      {% for pr in product%} {% for p in pr%} {% if p.category == cat %}
 
       <div class="card">
         <div class="card-img">
@@ -40,7 +40,7 @@
                   ></a></div>
       </div>
     </div>
-    {% endif %} {% endfor %}
+    {% endif %} {% endfor %} {% endfor %}
   </div>
 
   {% endfor %}

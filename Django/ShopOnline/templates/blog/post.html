@@ -1,0 +1,51 @@
+{% extends 'blog/nav.html' %}
+
+{% block title%}
+post
+
+{% endblock %}
+
+{% block css%}
+<style type="text/css">
+	
+	.jumbo{
+		height: auto;
+		border-radius: 10px;
+
+	}
+
+	.jumbo h2{
+		padding: 2px 20px;
+	}
+
+	.jumbo_p{
+		padding: 40px 100px;
+	}
+
+</style>
+
+
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5 h-100">
+	<div class="jumbotron jumbo bg-dark">
+		{%for i in post%}
+		<h2 class="text-center">{{i.post_name}}</h2>
+		<p class="jumbo_p">{{i.post_desc}}</p>
+	</div>
+
+
+
+	<div class="container ">
+       <div class="fb-comments" data-href="http://127.0.0.1:8000/blog/post/{{i.post_id}}" data-numposts="1" data-width=""></div>
+     
+     </div> 
+	
+</div>
+
+{% endfor %}
+
+{% endblock %}	
+
+

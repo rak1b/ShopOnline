@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{% static 'blog/css/nav.css' %}" />
 
     <script src="{% static 'js/jqry.js' %}"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0" nonce="Wb42wDWN"></script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -71,10 +72,14 @@
 
    
     {% block content%}
+    
      {% endblock %}
+
+
+     
      
  {% block js %} 
-    <script type="text/javascript" src="{%static "blog/js/nav.js"%}"></script>
+    <script type="text/javascript" src="{%static 'blog/js/nav.js'%}"></script>
    {% endblock %}
   </body>
 </html>

@@ -7,7 +7,7 @@ import  json
 
 
 def navview(request):
-    return render(request, "shop/Nav.html")
+    return render(request, "shop/nav.html")
 
 
 def imageview(request):
@@ -73,6 +73,9 @@ def homeview(request):
     category_list = set()
 
     categories = products.objects.values('category')
+    print(categories)
+    print(prods)
+
 
     for i in categories:
         cat_val = i['category']
@@ -82,6 +85,54 @@ def homeview(request):
     rk = {"product": prods, "range": range(car_length),'all_cats':category_list}
     return render(request, "shop/home.html", rk)
 
+def searchview(request):
+    if request.method == 'GET':
+        val = request.GET.get('search','nothing gots')
+        val= val.lower()
+        print(val)
+
+    search_prods = products.objects.all()
+    print(search_prods)
+    search_category_list = set()
+    products_search_list = set()
+    for i in search_prods:
+        print(f"printing I : {i}")
+        print(f"printing product name: {i.product_name}")
+
+        if (val in i.category.lower()) or (val in i.product_name.lower()) or (val in i.product_desc.lower()):
+            print(i.product_name)
+            temp_prod = products.objects.filter(product_id = i.product_id)
+            products_search_list.add(temp_prod)
+            search_category_list.add(i.category)
+
+            print("item in database")
+        else:
+            print(f'{val} not in database')
+    print(products_search_list)
+    for i in products_search_list:
+        print(f"looping {i}")
+        for p in i:
+            print(f"looping again {p.product_name}")
+
+
+
+    # search_categories = products.objects.values('category')
+    # print(search_categories)
+
+    # for i in search_categories:
+    #     cat_val = i['category']
+    #     if val in cat_val:
+            # search_category_list.add(cat_val)
+    
+    car_length = len(search_category_list)
+    rk = {"product": products_search_list, "range": range(car_length),'all_cats':search_category_list}
+    return render(request, "shop/search.html",rk)
+
+
+
+
+
+    return render(request,'shop/search.html')
 
 def pracview(request):
     prods = products.objects.all()

@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  // alert("Home Connected")
   $(".caro").lightSlider({
     item: 4,
     loop: true,

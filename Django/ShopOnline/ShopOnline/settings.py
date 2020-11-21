@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'Blog_Shop',
 ]
 
 MIDDLEWARE = [
@@ -56,10 +55,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "ShopOnline.urls"
 
+# TEMPLATE_DIRS = [os.path.join(BASE_DIR,'templates')]
+# print(TEMPLATE_DIRS)
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": ["templates"],
+        # "DIRS": ["templates",TEMPLATE_DIRS ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

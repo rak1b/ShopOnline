@@ -33,13 +33,17 @@
     <section class="nav_section ">
       <div class="phn_nav">
         <div class="phn_nav_logo">
-          <h1><a href="">MyWeb</a></h1>
+          <h1><a href="{% url 'homeView' %}">ShopOnline</a></h1>
         </div>
-        {% comment %} <a href="" class=""
-          ><i id = "cart_icon"class="fa fa-shopping-cart"></i> (<span id="all_cart_phn">0</span>)</a
-        > {% endcomment %}
+ 
 
-   <i  class="fa fa-shopping-cart active cart_show cart_for_phn" style='text-decoration:none;'>(<span id="all_cart_phn">0</span>)</i> 
+  
+      <a class="" href="{% url 'cart_detailsView' %}">
+   <i  class="fa fa-shopping-cart active cart_show cart_for_phn" style='text-decoration:none;'>
+   (<span id="all_cart_phn">0</span>)
+   </i> 
+   </a>
+
 
         <span class="nav_show"
           ><i id="toggle_icon" class="fa fa-bars three_dot"></i
@@ -49,7 +53,7 @@
 
       <nav class="resp_nav ">
         <div class="nav_logo">
-          <h1><a href="">MyWeb</a></h1>
+          <h1><a href="/shop/home">ShopOnline</a></h1>
         </div>
         <div class="nav_items">
           <ul class="nav_ul">
@@ -69,8 +73,11 @@
           </ul>
         </div>
         <div class="nav_search">
-          <input type="text" placeholder="Search" />
-          <button>Search</button>
+          <form action="{% url 'searchView' %}" method="GET">
+             <input class="search" name="search" type="text" placeholder="Search" />
+              <button href="" class="nav_search_btn btn btn-success" type="submit">Search</button>
+          </form>
+         
         </div>
       </nav>
     </section>
